@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="#1C1C1C">
+
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:text="0"
+        android:textSize="50sp"
+        android:textColor="#FFFFFF"
+        android:gravity="right|bottom"
+        android:padding="20dp"
+        android:background="#000000"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Scientific Functions Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnSciSin"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="sin"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciCos"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="cos"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciTan"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="tan"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciLog"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="log"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciLn"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="ln"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"/>
+    </LinearLayout>
+
+    <!-- Scientific Functions Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnSciSqrt"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="√"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciSquare"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="x²"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciPi"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="π"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciE"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="e"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciAC"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="AC"
+            android:textColor="#FFFFFF"
+            android:background="#FF4444"/>
+    </LinearLayout>
+
+    <!-- Numbers Row 1 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnSci7"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="7"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSci8"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="8"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSci9"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="9"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciAdd"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="+"
+            android:textColor="#FFFFFF"
+            android:background="#FFA500"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciSubtract"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="-"
+            android:textColor="#FFFFFF"
+            android:background="#FFA500"/>
+    </LinearLayout>
+
+    <!-- Numbers Row 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnSci4"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="4"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSci5"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="5"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSci6"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="6"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciMultiply"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="×"
+            android:textColor="#FFFFFF"
+            android:background="#FFA500"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciDivide"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="÷"
+            android:textColor="#FFFFFF"
+            android:background="#FFA500"/>
+    </LinearLayout>
+
+    <!-- Numbers Row 3 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btnSci1"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="1"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSci2"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="2"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSci3"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="3"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSci0"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="2"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:background="#333333"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciDot"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="."
+            android:textColor="#FFFFFF"
+            android:background="#333333"/>
+    </LinearLayout>
+
+    <!-- Bottom Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/btnSciBack"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="← Back"
+            android:textColor="#FFFFFF"
+            android:background="#757575"
+            android:layout_marginEnd="5dp"/>
+
+        <Button
+            android:id="@+id/btnSciEquals"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="="
+            android:textColor="#FFFFFF"
+            android:background="#4CAF50"/>
+    </LinearLayout>
+
+</LinearLayout>
