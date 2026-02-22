@@ -1,10 +1,12 @@
 package com.example.calculatorpro;
-
+import com.example.calculatorpro.ScientificActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
@@ -16,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
     double firstValue = 0;
     double secondValue = 0;
     boolean isNewOperation = true;
-
-    // History
     ArrayList<String> historyList = new ArrayList<>();
 
     @Override
@@ -27,365 +27,173 @@ public class MainActivity extends AppCompatActivity {
 
         display = findViewById(R.id.display);
 
-        // ============ NUMBER BUTTONS ============
-        Button btn0 = findViewById(R.id.btn0);
-        Button btn1 = findViewById(R.id.btn1);
-        Button btn2 = findViewById(R.id.btn2);
-        Button btn3 = findViewById(R.id.btn3);
-        Button btn4 = findViewById(R.id.btn4);
-        Button btn5 = findViewById(R.id.btn5);
-        Button btn6 = findViewById(R.id.btn6);
-        Button btn7 = findViewById(R.id.btn7);
-        Button btn8 = findViewById(R.id.btn8);
-        Button btn9 = findViewById(R.id.btn9);
-        Button btnDot = findViewById(R.id.btnDot);
+        // Number buttons
+        setupNumberButton(R.id.btn0, "0");
+        setupNumberButton(R.id.btn1, "1");
+        setupNumberButton(R.id.btn2, "2");
+        setupNumberButton(R.id.btn3, "3");
+        setupNumberButton(R.id.btn4, "4");
+        setupNumberButton(R.id.btn5, "5");
+        setupNumberButton(R.id.btn6, "6");
+        setupNumberButton(R.id.btn7, "7");
+        setupNumberButton(R.id.btn8, "8");
+        setupNumberButton(R.id.btn9, "9");
+        setupNumberButton(R.id.btnDot, ".");
 
-        btn0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "0";
-                display.setText(currentNumber);
-            }
-        });
+        // Operator buttons
+        setupOperatorButton(R.id.btnAdd, "+");
+        setupOperatorButton(R.id.btnSubtract, "-");
+        setupOperatorButton(R.id.btnMultiply, "×");
+        setupOperatorButton(R.id.btnDivide, "÷");
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "1";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "2";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "3";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "4";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "5";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "6";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "7";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "8";
-                display.setText(currentNumber);
-            }
-        });
-
-        btn9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                currentNumber += "9";
-                display.setText(currentNumber);
-            }
-        });
-
-        btnDot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                if (!currentNumber.contains(".")) {
-                    if (currentNumber.isEmpty()) {
-                        currentNumber = "0.";
-                    } else {
-                        currentNumber += ".";
-                    }
-                    display.setText(currentNumber);
-                }
-            }
-        });
-
-        // ============ OPERATOR BUTTONS ============
-        Button btnAdd = findViewById(R.id.btnAdd);
-        Button btnSubtract = findViewById(R.id.btnSubtract);
-        Button btnMultiply = findViewById(R.id.btnMultiply);
-        Button btnDivide = findViewById(R.id.btnDivide);
+        // Percent button
         Button btnPercent = findViewById(R.id.btnPercent);
-
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty()) {
-                    firstValue = Double.parseDouble(currentNumber);
-                    operator = "+";
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
+        btnPercent.setOnClickListener(v -> {
+            if (!currentNumber.isEmpty()) {
+                double value = Double.parseDouble(currentNumber);
+                double result = value / 100;
+                display.setText(String.valueOf(result));
+                currentNumber = String.valueOf(result);
+                isNewOperation = true;
             }
         });
 
-        btnSubtract.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty()) {
-                    firstValue = Double.parseDouble(currentNumber);
-                    operator = "-";
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-            }
-        });
-
-        btnMultiply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty()) {
-                    firstValue = Double.parseDouble(currentNumber);
-                    operator = "×";
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-            }
-        });
-
-        btnDivide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty()) {
-                    firstValue = Double.parseDouble(currentNumber);
-                    operator = "÷";
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-            }
-        });
-
-        btnPercent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty()) {
-                    double value = Double.parseDouble(currentNumber);
-                    double result = value / 100;
-                    display.setText(String.valueOf(result));
-                    currentNumber = String.valueOf(result);
-                    isNewOperation = true;
-                }
-            }
-        });
-
-        // ============ ACTION BUTTONS ============
+        // Equals button
         Button btnEquals = findViewById(R.id.btnEquals);
-        Button btnAC = findViewById(R.id.btnAC);
-        Button btnBackspace = findViewById(R.id.btnBackspace);
-        Button btnBracket = findViewById(R.id.btnBracket);
+        btnEquals.setOnClickListener(v -> {
+            if (!currentNumber.isEmpty() && !operator.isEmpty()) {
+                secondValue = Double.parseDouble(currentNumber);
+                double result = 0;
 
-        btnEquals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty() && !operator.isEmpty()) {
-                    secondValue = Double.parseDouble(currentNumber);
-                    double result = 0;
-
-                    if (operator.equals("+")) {
-                        result = firstValue + secondValue;
-                    } else if (operator.equals("-")) {
-                        result = firstValue - secondValue;
-                    } else if (operator.equals("×")) {
-                        result = firstValue * secondValue;
-                    } else if (operator.equals("÷")) {
-                        if (secondValue != 0) {
-                            result = firstValue / secondValue;
-                        } else {
+                switch (operator) {
+                    case "+": result = firstValue + secondValue; break;
+                    case "-": result = firstValue - secondValue; break;
+                    case "×": result = firstValue * secondValue; break;
+                    case "÷":
+                        if (secondValue != 0) result = firstValue / secondValue;
+                        else {
                             display.setText("Error");
-                            currentNumber = "";
-                            operator = "";
-                            isNewOperation = true;
+                            currentNumber = ""; operator = ""; isNewOperation = true;
                             return;
                         }
-                    }
-
-                    display.setText(String.valueOf(result));
-
-                    // History mein save
-                    String historyEntry = firstValue + " " + operator + " " + secondValue + " = " + result;
-                    historyList.add(historyEntry);
-
-                    currentNumber = String.valueOf(result);
-                    operator = "";
-                    isNewOperation = true;
+                        break;
                 }
-            }
-        });
 
-        btnAC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentNumber = "";
+                display.setText(String.valueOf(result));
+                historyList.add(firstValue + " " + operator + " " + secondValue + " = " + result);
+                currentNumber = String.valueOf(result);
                 operator = "";
-                firstValue = 0;
-                secondValue = 0;
-                display.setText("0");
                 isNewOperation = true;
             }
         });
 
-        // Backspace - normal click
-        btnBackspace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty()) {
-                    currentNumber = currentNumber.substring(0, currentNumber.length() - 1);
-                    if (currentNumber.isEmpty()) {
-                        display.setText("0");
-                    } else {
-                        display.setText(currentNumber);
-                    }
-                }
+        // AC button
+        Button btnAC = findViewById(R.id.btnAC);
+        btnAC.setOnClickListener(v -> {
+            currentNumber = ""; operator = "";
+            firstValue = 0; secondValue = 0;
+            display.setText("0");
+            isNewOperation = true;
+        });
+
+        // Backspace
+        Button btnBackspace = findViewById(R.id.btnBackspace);
+        btnBackspace.setOnClickListener(v -> {
+            if (!currentNumber.isEmpty()) {
+                currentNumber = currentNumber.substring(0, currentNumber.length() - 1);
+                display.setText(currentNumber.isEmpty() ? "0" : currentNumber);
             }
         });
 
-        // Backspace - long press
-        btnBackspace.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                currentNumber = "";
-                display.setText("0");
-                isNewOperation = true;
-                return true;
-            }
+        btnBackspace.setOnLongClickListener(v -> {
+            currentNumber = "";
+            display.setText("0");
+            isNewOperation = true;
+            return true;
         });
 
-        btnBracket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "(";
-                    isNewOperation = false;
-                } else {
-                    currentNumber += ")";
-                }
-                display.setText(currentNumber);
+        // Bracket button
+        Button btnBracket = findViewById(R.id.btnBracket);
+        btnBracket.setOnClickListener(v -> {
+            if (isNewOperation) {
+                currentNumber = "(";
+                isNewOperation = false;
+            } else {
+                currentNumber += ")";
             }
+            display.setText(currentNumber);
         });
 
-        // ============ HISTORY BUTTON ============
+        // ============ TOP BAR BUTTONS ============
+
+        // History button
         Button btnHistory = findViewById(R.id.btnHistory);
-
-        btnHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (historyList.isEmpty()) {
-                    display.setText("No History");
-                } else {
-                    display.setText(historyList.get(historyList.size() - 1));
-                    isNewOperation = true;
-                }
+        btnHistory.setOnClickListener(v -> {
+            if (historyList.isEmpty()) {
+                display.setText("No History");
+            } else {
+                StringBuilder sb = new StringBuilder();
+                for (String h : historyList) sb.append(h).append("\n");
+                display.setText(sb.toString());
+                isNewOperation = true;
             }
         });
 
-        btnHistory.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (historyList.isEmpty()) {
-                    display.setText("No History");
-                } else {
-                    StringBuilder sb = new StringBuilder();
-                    for (String h : historyList) {
-                        sb.append(h).append("\n");
-                    }
-                    display.setText(sb.toString());
-                    isNewOperation = true;
+        // Scientific button
+        Button btnScientific = findViewById(R.id.btnScientific);
+        btnScientific.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ScientificActivity.class);
+            startActivity(intent);
+        });
+
+        // Menu button (3 dots)
+        Button btnMenu = findViewById(R.id.btnMenu);
+        btnMenu.setOnClickListener(v -> {
+            PopupMenu popup = new PopupMenu(MainActivity.this, btnMenu);
+            popup.getMenuInflater().inflate(R.menu.main_menu, popup.getMenu());
+            popup.setOnMenuItemClickListener(item -> {
+                int id = item.getItemId();
+                if (id == R.id.menu_clear_history) {
+                    historyList.clear();
+                    Toast.makeText(this, "History Cleared", Toast.LENGTH_SHORT).show();
+                } else if (id == R.id.menu_theme) {
+                    Toast.makeText(this, "Theme Change (Coming Soon)", Toast.LENGTH_SHORT).show();
+                } else if (id == R.id.menu_help) {
+                    Toast.makeText(this, "Help: Use = to calculate", Toast.LENGTH_SHORT).show();
                 }
                 return true;
+            });
+            popup.show();
+        });
+    }
+
+    private void setupNumberButton(int id, String value) {
+        Button btn = findViewById(id);
+        btn.setOnClickListener(v -> {
+            if (isNewOperation) {
+                currentNumber = "";
+                isNewOperation = false;
+            }
+            if (value.equals(".")) {
+                if (!currentNumber.contains(".")) {
+                    currentNumber = currentNumber.isEmpty() ? "0." : currentNumber + ".";
+                }
+            } else {
+                currentNumber += value;
+            }
+            display.setText(currentNumber);
+        });
+    }
+
+    private void setupOperatorButton(int id, String op) {
+        Button btn = findViewById(id);
+        btn.setOnClickListener(v -> {
+            if (!currentNumber.isEmpty()) {
+                firstValue = Double.parseDouble(currentNumber);
+                operator = op;
+                currentNumber = "";
+                isNewOperation = false;
             }
         });
-
-        // ============ SCIENTIFIC BUTTON (ARROW) - SAFE VERSION ============
-        Button btnScientific = findViewById(R.id.btnScientific);
-        if (btnScientific != null) {
-            btnScientific.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, com.example.calculatorpro.ScientificActivity.class);
-                    startActivity(intent);
-                }
-            });
-        } else {
-            // Button nahi mila to kuch mat kar
-            // Agar XML mein button add kiya hai to yeh kabhi execute nahi hoga
-        }
     }
 }

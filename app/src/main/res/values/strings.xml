@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Calculatorpro</string>
+    <string name="app_name">CalculatorPro</string>
+
+    <!-- Symbols -->
+    <string name="menu">&#9776;</string>
+    <string name="arrow_up">&#8593;</string>
+    <string name="divide">&#247;</string>
+    <string name="multiply">&#215;</string>
+    <string name="backspace">&#9003;</string>
 </resources>

@@ -23,26 +23,221 @@ public class ScientificActivity extends AppCompatActivity {
         display = findViewById(R.id.display);
 
         // Number buttons
-        setupNumberButton(R.id.btnSci7, "7");
-        setupNumberButton(R.id.btnSci8, "8");
-        setupNumberButton(R.id.btnSci9, "9");
-        setupNumberButton(R.id.btnSci4, "4");
-        setupNumberButton(R.id.btnSci5, "5");
-        setupNumberButton(R.id.btnSci6, "6");
-        setupNumberButton(R.id.btnSci1, "1");
-        setupNumberButton(R.id.btnSci2, "2");
-        setupNumberButton(R.id.btnSci3, "3");
-        setupNumberButton(R.id.btnSci0, "0");
-        setupNumberButton(R.id.btnSciDot, ".");
+        Button btn0 = findViewById(R.id.btnSci0);
+        Button btn1 = findViewById(R.id.btnSci1);
+        Button btn2 = findViewById(R.id.btnSci2);
+        Button btn3 = findViewById(R.id.btnSci3);
+        Button btn4 = findViewById(R.id.btnSci4);
+        Button btn5 = findViewById(R.id.btnSci5);
+        Button btn6 = findViewById(R.id.btnSci6);
+        Button btn7 = findViewById(R.id.btnSci7);
+        Button btn8 = findViewById(R.id.btnSci8);
+        Button btn9 = findViewById(R.id.btnSci9);
+        Button btnDot = findViewById(R.id.btnSciDot);
 
-        // Operator buttons
-        setupOperatorButton(R.id.btnSciAdd, "+");
-        setupOperatorButton(R.id.btnSciSubtract, "-");
-        setupOperatorButton(R.id.btnSciMultiply, "×");
-        setupOperatorButton(R.id.btnSciDivide, "÷");
+        btn0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "0";
+                display.setText(currentNumber);
+            }
+        });
 
-        // sin button
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "1";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "2";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "3";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "4";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "5";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "6";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "7";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "8";
+                display.setText(currentNumber);
+            }
+        });
+
+        btn9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                currentNumber += "9";
+                display.setText(currentNumber);
+            }
+        });
+
+        btnDot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNewOperation) {
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+                if (!currentNumber.contains(".")) {
+                    if (currentNumber.isEmpty()) {
+                        currentNumber = "0.";
+                    } else {
+                        currentNumber += ".";
+                    }
+                    display.setText(currentNumber);
+                }
+            }
+        });
+
+        // Basic operator buttons
+        Button btnAdd = findViewById(R.id.btnSciAdd);
+        Button btnSubtract = findViewById(R.id.btnSciSubtract);
+        Button btnMultiply = findViewById(R.id.btnSciMultiply);
+        Button btnDivide = findViewById(R.id.btnSciDivide);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!currentNumber.isEmpty()) {
+                    firstValue = Double.parseDouble(currentNumber);
+                    operator = "+";
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+            }
+        });
+
+        btnSubtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!currentNumber.isEmpty()) {
+                    firstValue = Double.parseDouble(currentNumber);
+                    operator = "-";
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+            }
+        });
+
+        btnMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!currentNumber.isEmpty()) {
+                    firstValue = Double.parseDouble(currentNumber);
+                    operator = "×";
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+            }
+        });
+
+        btnDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!currentNumber.isEmpty()) {
+                    firstValue = Double.parseDouble(currentNumber);
+                    operator = "÷";
+                    currentNumber = "";
+                    isNewOperation = false;
+                }
+            }
+        });
+
+        // Scientific function buttons
         Button btnSin = findViewById(R.id.btnSciSin);
+        Button btnCos = findViewById(R.id.btnSciCos);
+        Button btnTan = findViewById(R.id.btnSciTan);
+        Button btnLog = findViewById(R.id.btnSciLog);
+        Button btnLn = findViewById(R.id.btnSciLn);
+        Button btnSqrt = findViewById(R.id.btnSciSqrt);
+        Button btnSquare = findViewById(R.id.btnSciSquare);
+        Button btnPi = findViewById(R.id.btnSciPi);
+        Button btnE = findViewById(R.id.btnSciE);
+
         btnSin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,8 +250,6 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // cos button
-        Button btnCos = findViewById(R.id.btnSciCos);
         btnCos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,8 +262,6 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // tan button
-        Button btnTan = findViewById(R.id.btnSciTan);
         btnTan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,8 +274,6 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // log button
-        Button btnLog = findViewById(R.id.btnSciLog);
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,8 +286,6 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // ln button
-        Button btnLn = findViewById(R.id.btnSciLn);
         btnLn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,8 +298,6 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // square root button
-        Button btnSqrt = findViewById(R.id.btnSciSqrt);
         btnSqrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,8 +310,6 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // square button
-        Button btnSquare = findViewById(R.id.btnSciSquare);
         btnSquare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,8 +322,6 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // pi button
-        Button btnPi = findViewById(R.id.btnSciPi);
         btnPi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,22 +330,11 @@ public class ScientificActivity extends AppCompatActivity {
             }
         });
 
-        // e button
-        Button btnE = findViewById(R.id.btnSciE);
         btnE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 currentNumber = String.valueOf(Math.E);
                 display.setText(currentNumber);
-            }
-        });
-
-        // Back button
-        Button btnBack = findViewById(R.id.btnSciBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
 
@@ -214,44 +384,13 @@ public class ScientificActivity extends AppCompatActivity {
                 }
             }
         });
-    }
 
-    private void setupNumberButton(int id, String value) {
-        Button btn = findViewById(id);
-        btn.setOnClickListener(new View.OnClickListener() {
+        // Back button
+        Button btnBack = findViewById(R.id.btnSciBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isNewOperation) {
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
-                if (value.equals(".")) {
-                    if (!currentNumber.contains(".")) {
-                        if (currentNumber.isEmpty()) {
-                            currentNumber = "0.";
-                        } else {
-                            currentNumber += ".";
-                        }
-                    }
-                } else {
-                    currentNumber += value;
-                }
-                display.setText(currentNumber);
-            }
-        });
-    }
-
-    private void setupOperatorButton(int id, String op) {
-        Button btn = findViewById(id);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!currentNumber.isEmpty()) {
-                    firstValue = Double.parseDouble(currentNumber);
-                    operator = op;
-                    currentNumber = "";
-                    isNewOperation = false;
-                }
+                finish();
             }
         });
     }
